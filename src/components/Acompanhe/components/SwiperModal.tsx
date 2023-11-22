@@ -33,7 +33,7 @@ import { Navigation } from "swiper/modules";
 import Image from "next/image";
 export function SwiperModal() {
   return (
-    <div className="relative">
+    <div className="relative w-full">
       <Swiper
         className="lg:rounded-lg"
         navigation={{
