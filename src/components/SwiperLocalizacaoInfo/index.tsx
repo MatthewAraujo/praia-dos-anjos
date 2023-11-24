@@ -55,9 +55,10 @@ const arrLocalizacaoInfo = [
 // import required modules
 import { Navigation, Pagination } from "swiper/modules";
 import Image from "next/image";
+import { Fancybox } from "../Fancybox";
 export function SwiperLocalizacaoInfo() {
   return (
-    <div className="relative mx-auto w-full lg:pl-12">
+    <Fancybox className="relative mx-auto w-full lg:pl-12">
       <Swiper
         className="w-full lg:rounded-lg"
         navigation={{
@@ -166,6 +167,6 @@ export function SwiperLocalizacaoInfo() {
           <Image src={arrowRight} alt="arrow" className="w-5" />
         </div>
       </div>
-    </div>
+    </Fancybox>
   );
 }

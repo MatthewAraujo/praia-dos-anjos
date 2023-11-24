@@ -38,9 +38,10 @@ import "swiper/css/pagination";
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
 import Image from "next/image";
+import { Fancybox } from "../Fancybox";
 export function SwiperPlantas() {
   return (
-    <div className="relative mx-auto max-w-6xl py-12">
+    <Fancybox className="relative mx-auto max-w-6xl py-12">
       <Swiper
         className="max-w-6xl after:absolute  after:inset-0 after:z-10 after:bg-praia-blue-500 after:bg-opacity-20 lg:rounded-lg"
         navigation={{
@@ -63,19 +64,21 @@ export function SwiperPlantas() {
       >
         {arrPlantas.map((item, index) => (
           <SwiperSlide key={index} className="relative ">
-            <picture>
-              <source media="(min-width: 768px)" srcSet={item.picture} />
-              <Image
-                src={item.img}
-                alt={item.alt}
-                width={item.width}
-                height={item.height}
-                className="w-full object-cover"
-              />
-            </picture>
-            <p className="absolute bottom-0 left-0 h-8 w-full bg-black bg-opacity-60 text-center text-white">
-              {item.description}
-            </p>
+            <a href={item.picture} data-fancybox="doc">
+              <picture>
+                <source media="(min-width: 768px)" srcSet={item.picture} />
+                <Image
+                  src={item.img}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  className="w-full object-cover"
+                />
+              </picture>
+              <p className="absolute bottom-0 left-0 h-8 w-full bg-black bg-opacity-60 text-center text-white">
+                {item.description}
+              </p>
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -90,6 +93,6 @@ export function SwiperPlantas() {
       <div className="swiper-button-plantas-next absolute right-0 top-1/2 z-30 -translate-y-1/2  cursor-pointer rounded-s-full bg-praia-blue-linear p-2 py-3 pl-4 lg:right-5 lg:rounded-e-full lg:rounded-s-none ">
         <Image src={arrowRight} alt="arrow" className="w-5" />
       </div>
-    </div>
+    </Fancybox>
   );
 }

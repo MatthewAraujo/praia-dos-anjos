@@ -83,7 +83,7 @@ export function SwiperLazer() {
       >
         {arrLazer.map((item, index) => (
           <SwiperSlide key={index} className="relative py-8">
-            <a href={item.picture} data-fancybox="doc">
+            <a >
               <div>
                 <picture>
                   <source media="(min-width: 768px)" srcSet={item.picture} />

@@ -31,9 +31,10 @@ const arrPlantas = [
 
 import { Navigation } from "swiper/modules";
 import Image from "next/image";
+import { Fancybox } from "../Fancybox";
 export function SwiperLocalizacaoFotos() {
   return (
-    <div className="relative pb-12 lg:pl-12 pt-1">
+    <Fancybox className="relative pb-12 pt-1 lg:pl-12">
       <Swiper
         className="lg:rounded-lg"
         navigation={{
@@ -45,16 +46,18 @@ export function SwiperLocalizacaoFotos() {
       >
         {arrPlantas.map((item, index) => (
           <SwiperSlide key={index} className="relative ">
-            <picture>
-              <source media="(min-width: 768px)" srcSet={item.picture} />
-              <Image
-                src={item.img}
-                alt={item.alt}
-                width={item.width}
-                height={item.height}
-                className="w-full object-cover"
-              />
-            </picture>
+            <a href={item.picture} data-fancybox="doc">
+              <picture>
+                <source media="(min-width: 768px)" srcSet={item.picture} />
+                <Image
+                  src={item.img}
+                  alt={item.alt}
+                  width={item.width}
+                  height={item.height}
+                  className="w-full object-cover"
+                />
+              </picture>
+            </a>
           </SwiperSlide>
         ))}
       </Swiper>
@@ -68,6 +71,6 @@ export function SwiperLocalizacaoFotos() {
       <div className="swiper-button-plantas-localizacao-fotos-next  absolute right-0 top-1/2 z-30 -translate-y-1/2  cursor-pointer rounded-s-full bg-praia-blue-linear p-2 py-3 pl-4 lg:-right-10 lg:bg-transparent">
         <Image src={arrowRight} alt="arrow" className="w-5" />
       </div>
-    </div>
+    </Fancybox>
   );
 }
