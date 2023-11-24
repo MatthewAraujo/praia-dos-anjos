@@ -18,16 +18,16 @@ import picture from "../../../../public/mobile/acompanhe/modal/praia_dos_anjos 1
 export function ModalAcompanhe({}) {
   const { isModalOpen, setIsModalOpen, modal } = useContext(ModalContext);
 
-  const { id, blocos, carrouselImg, img, percentage } = modal;
+  const { id, blocos, carrouselImg, img, percentage, status } = modal;
 
   return (
-    <Dialog onOpenChange={setIsModalOpen} open={isModalOpen}>
+    <Dialog onOpenChange={setIsModalOpen} open={isModalOpen} key={id}>
       <DialogContent className="p-0 lg:max-w-5xl xl:max-w-6xl 2xl:max-w-7xl">
         <DialogHeader className="p-0">
           <DialogDescription className="grid grid-cols-1 overflow-hidden rounded-lg lg:flex lg:flex-row lg:items-center">
             <div className="relative w-full after:absolute after:inset-0  after:z-10  after:rounded-xl after:bg-praia-blue-500 after:bg-opacity-50 lg:w-1/3">
               <picture>
-                <source media="(min-width: 768px)" srcSet={img} />
+                <source media="(min-width: 1024px)" srcSet={img} />
                 <Image
                   src={picture}
                   alt=""
@@ -51,11 +51,11 @@ export function ModalAcompanhe({}) {
                     <p className="text-xl font-bold uppercase text-praia-blue-100">
                       Blocos{" "}
                       <strong className="text-praia-blue-footer">
-                        1, 2 e 3
+                        {blocos}
                       </strong>
                     </p>{" "}
                     <p className="text-xl font-bold uppercase text-praia-blue-100">
-                      prontos para morar
+                      {status}
                     </p>
                   </div>
                 </div>
@@ -66,22 +66,28 @@ export function ModalAcompanhe({}) {
                   </p>
                 </div>
                 <div className="">
-                  <div className="after:aboslute flex items-center justify-between relative before:absolute before:h-3 before:w-[calc(100%-20px);] box-si before:-z-20 before:bg-gray-200 after:absolute after:h-3 after:w-[calc(60%-20px);] box-si after:-z-10 after:bg-gradient-to-r from-praia-blue-500 to-praia-blue-100">
+                  <div
+                    className={`relative flex items-center justify-between from-praia-blue-500 to-praia-blue-100 before:absolute before:-z-20 before:hidden before:h-3 before:w-[calc(100%-20px)] before:bg-gray-200 after:absolute after:-z-10 after:hidden after:h-3 after:w-[calc(${`${percentage}`}%-20px)] after:bg-gradient-to-r lg:before:block lg:after:block`}
+                  >
                     <div className="hidden lg:block">
                       <Image src={bricks} alt="" className="" />
                     </div>
                     <div className="flex items-center gap-5 lg:flex-col lg:gap-0 lg:pr-5 ">
                       {" "}
                       <div>
-                        <Image src={homeKey} alt="" className="w-16 lg:w-full" />
+                        <Image
+                          src={homeKey}
+                          alt=""
+                          className="w-16 lg:w-full"
+                        />
                       </div>
                       <p className="text-4xl font-bold text-praia-blue-linear lg:hidden">
-                        100%
+                        {percentage}%
                       </p>
                     </div>
                   </div>
                   <p className="hidden text-end text-4xl font-bold text-praia-blue-linear lg:block">
-                    100%
+                    {percentage}%
                   </p>
                 </div>
                 <div className="w-full text-left lg:w-full lg:max-w-xl">
@@ -89,7 +95,7 @@ export function ModalAcompanhe({}) {
                     veja de perto!
                   </p>
                   <div className="w-full">
-                    <SwiperModal />
+                    <SwiperModal arrPlantas={carrouselImg} />
                   </div>
                   <a
                     href=""

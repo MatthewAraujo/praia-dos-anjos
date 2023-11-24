@@ -5,33 +5,19 @@ import "swiper/css/navigation";
 
 import arrowRight from "../../../../public/arrow-right.svg";
 
-const arrPlantas = [
-  {
-    img: "/mobile/localizacaoFotos/arraial.png",
-    alt: "planta",
-    width: 768,
-    height: 768,
-    picture: "/desktop/localizacaoFotos/arraial.png",
-  },
-  {
-    img: "/mobile/localizacaoFotos/arraial.png",
-    alt: "planta",
-    width: 768,
-    height: 768,
-    picture: "/desktop/localizacaoFotos/arraial.png",
-  },
-  {
-    img: "/mobile/localizacaoFotos/arraial.png",
-    alt: "planta",
-    width: 768,
-    height: 768,
-    picture: "/desktop/localizacaoFotos/arraial.png",
-  },
-];
+interface SwiperModalProps {
+  arrPlantas: Array<{
+    img: string;
+    alt: string;
+    width: number;
+    height: number;
+    picture: string;
+  }>;
+}
 
 import { Navigation } from "swiper/modules";
 import Image from "next/image";
-export function SwiperModal() {
+export function SwiperModal({ arrPlantas }: SwiperModalProps) {
   return (
     <div className="relative w-full">
       <Swiper
@@ -46,7 +32,7 @@ export function SwiperModal() {
         {arrPlantas.map((item, index) => (
           <SwiperSlide key={index} className="relative ">
             <picture>
-              <source media="(min-width: 768px)" srcSet={item.picture} />
+              <source media="(min-width: 425px)" srcSet={item.picture} />
               <Image
                 src={item.img}
                 alt={item.alt}

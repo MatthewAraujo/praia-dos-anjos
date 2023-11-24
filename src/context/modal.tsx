@@ -2,10 +2,17 @@
 import { createContext, useState } from "react";
 interface ModalProps {
   id: number;
-  img?: string;
-  blocos?: string;
-  percentage?: number;
-  carrouselImg?: string[];
+  img: string;
+  blocos: string;
+  percentage: number;
+  carrouselImg: Array<{
+    img: string;
+    alt: string;
+    width: number;
+    height: number;
+    picture: string;
+  }>;
+  status: string;
 }
 
 interface ModalType {
@@ -26,7 +33,9 @@ export function ModalProvider({ children }: ModalProviderProps) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <ModalContext.Provider value={{ modal, setModal, isModalOpen, setIsModalOpen }}>
+    <ModalContext.Provider
+      value={{ modal, setModal, isModalOpen, setIsModalOpen }}
+    >
       {children}
     </ModalContext.Provider>
   );

@@ -53,31 +53,29 @@ export function SwiperAcompanhe() {
         modules={[Navigation]}
       >
         {arrLazer.map((item, index) => (
-          <div key={index}>
-            <SwiperSlide className="relative max-w-sm">
-              <div className="">
-                <Image
-                  src={item.img}
-                  alt={item.alt}
-                  width={item.width}
-                  height={item.height}
-                  className="w-full rounded-xl object-cover "
-                />
-                <div className="absolute bottom-24 left-1/2 z-10  h-16 w-full -translate-x-1/2 text-4xl  font-bold text-praia-blue-100 md:w-8/12 ">
-                  <div className="relative flex w-full items-center gap-5 px-3  after:absolute  after:inset-0 after:-z-10 after:rounded-xl after:bg-praia-blue-500 after:bg-opacity-70">
-                    <div>
-                      <Image src={arrowRight} alt="arrow" className="w-5" />
-                    </div>
-                    <div>
-                      <p className="">{item.blocos}</p>
-                      <p className="text-white"> {item.numeros}</p>
-                      <p className=""> {item.status}</p>
-                    </div>
+          <SwiperSlide key={index} className="relative max-w-sm">
+            <div className="">
+              <Image
+                src={item.img}
+                alt={item.alt}
+                width={item.width}
+                height={item.height}
+                className="w-full rounded-xl object-cover "
+              />
+              <div className="absolute bottom-24 left-1/2 z-10  h-16 w-full -translate-x-1/2 text-4xl  font-bold text-praia-blue-100 md:w-8/12 ">
+                <div className="relative flex w-full items-center gap-5 px-3  after:absolute  after:inset-0 after:-z-10 after:rounded-xl after:bg-praia-blue-500 after:bg-opacity-70">
+                  <div>
+                    <Image src={arrowRight} alt="arrow" className="w-5" />
+                  </div>
+                  <div>
+                    <p className="">{item.blocos}</p>
+                    <p className="text-white"> {item.numeros}</p>
+                    <p className=""> {item.status}</p>
                   </div>
                 </div>
               </div>
-            </SwiperSlide>
-          </div>
+            </div>
+          </SwiperSlide>
         ))}
       </Swiper>
       <div className="flex items-center justify-around pt-5">

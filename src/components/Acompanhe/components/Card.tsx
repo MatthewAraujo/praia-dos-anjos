@@ -1,7 +1,6 @@
-"use client"
+"use client";
 import Image from "next/image";
 import arrowRight from "../../../../public/arrow-right.svg";
-import { ModalAcompanhe } from "./Modal";
 import { ModalContext } from "@/context/modal";
 import { useContext } from "react";
 const arrCard = [
@@ -15,29 +14,67 @@ const arrCard = [
       img: "/desktop/acompanhe/bloco1.png",
       blocos: "1, 2 e 3",
       percentage: 50,
+      status: "prontos para Viver",
       carrouselImg: [
-        "/desktop/acompanhe/bloco1.png",
-        "/desktop/acompanhe/bloco2.png",
-        "/desktop/acompanhe/bloco3.png",
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
       ],
-    }
+    },
   },
   {
     bloco: "Bloco",
     image: "/desktop/acompanhe/bloco4.png",
     numeros: "1, 2 e 3",
     status: "prontos para morar",
-    modal:{
+    modal: {
       id: 2,
       img: "/desktop/acompanhe/bloco4.png",
       blocos: "1, 2 e 3",
       percentage: 50,
+      status: "prontos para morar",
       carrouselImg: [
-        "/desktop/acompanhe/bloco1.png",
-        "/desktop/acompanhe/bloco2.png",
-        "/desktop/acompanhe/bloco3.png",
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
       ],
-    }
+    },
   },
   {
     bloco: "Bloco",
@@ -49,22 +86,53 @@ const arrCard = [
       img: "/desktop/acompanhe/bloco5.png",
       blocos: "3, 2 e 3",
       percentage: 50,
+      status: "prontos para morar",
       carrouselImg: [
-        "/desktop/acompanhe/bloco1.png",
-        "/desktop/acompanhe/bloco2.png",
-        "/desktop/acompanhe/bloco3.png",
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
+        {
+          img: "/mobile/plantas/planta1.png",
+          alt: "planta",
+          width: 768,
+          height: 768,
+          picture: "/desktop/plantas/planta1.png",
+        },
       ],
-    }
+    },
   },
 ];
 export function Card() {
-  const {setIsModalOpen,setModal} = useContext(ModalContext);
-
+  const { setIsModalOpen, setModal } = useContext(ModalContext);
 
   return arrCard.map((item, index) => {
     return (
-      <>
-      <div key={index} className="group relative" onClick={()=> {setModal(item.modal); setIsModalOpen(true)}}>
+      <div
+        key={index}
+        className="group relative"
+        onClick={() => {
+          setModal({
+            id: item.modal.id,
+            img: item.modal.img,
+            blocos: item.modal.blocos,
+            percentage: item.modal.percentage,
+            carrouselImg: item.modal.carrouselImg,
+            status: item.modal.status,
+          });
+          setIsModalOpen(true);
+        }}
+      >
         <div className="flex justify-center">
           <div className="relative w-72">
             <Image src={item.image} alt="bloco" width={500} height={500} />
@@ -83,7 +151,6 @@ export function Card() {
           </div>
         </div>
       </div>
-      </>
     );
   });
 }

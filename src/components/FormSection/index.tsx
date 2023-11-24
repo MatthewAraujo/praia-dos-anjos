@@ -5,7 +5,7 @@ import { Form } from "../Form";
 
 export function FormSection() {
   return (
-    <div className=" bg-[#FDFAF6]  px-4 py-4">
+    <div className=" bg-[#FDFAF6]  px-4 py-20">
       <div className=" mx-auto flex max-w-7xl flex-col gap-5 lg:flex-row lg:justify-between">
         <div className="flex flex-col  gap-10">
           <div>
