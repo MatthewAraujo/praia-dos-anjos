@@ -16,15 +16,6 @@ export async function POST(req: Request) {
       subject: "string",
       to: "matthewaraujo20@gmail.com",
     },
-
-    smtp: {
-      host: "smtp.gmail.com",
-      port: 587,
-      secure: false,
-      auth: {
-        user: "envios@construtoradinamica.com.br",
-        pass: "#32185@_)",
-      },
     },
   });
 
