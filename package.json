@@ -14,14 +14,17 @@
     "@radix-ui/react-select": "^2.0.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.0.0",
+    "internit-nextjs": "^1.1.0",
     "lucide-react": "^0.292.0",
     "next": "14.0.2",
     "react": "^18",
     "react-dom": "^18",
+    "react-phone-input-2": "^2.15.1",
     "react-player": "^2.13.0",
     "swiper": "^11.0.4",
     "tailwind-merge": "^2.0.0",
-    "tailwindcss-animate": "^1.0.7"
+    "tailwindcss-animate": "^1.0.7",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@types/node": "^20",
